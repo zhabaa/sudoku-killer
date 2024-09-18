@@ -109,10 +109,19 @@ class SudokuKiller:
         matrix = self.matrix
         
         while self.count_free_cell(matrix) != 0:
+
+            if self.matrix[self.selected[0]][self.selected[1]]:
+                while self.matrix[self.selected[0]][self.selected[1]] == 0:
+                    self.move_selected()
+                
             posible_values = self.possible_values()
             
             if not len(posible_values):
                 # откат 
+                # нужно сохранить перводанную матрицу
+                # если ходов больше нет то на место последнего угадывания ставить ноль
+                # а если и там нет то +шаг назад
+                # ...
                 pass
             
             
@@ -126,5 +135,7 @@ print("-" * 25)
 print(sk.selected)
 sk.matrix[0][0] = 1
 sk.print_matrix()
-sk.move_to_zero()
+sk.move_to_zero() # разобраться с этой хуйней какието приколы с копией
 print(sk.selected)
+
+паудалять нахуй ненужные функции
