@@ -1,1 +1,6 @@
 /test.py
+venv
+tesseract
+assets
+data
+__pycache__
