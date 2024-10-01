@@ -1,7 +1,8 @@
 import pyautogui as pag
 import keyboard
 
-
+"""Нужно посмотреть почему не работает автозапонение я что проебался с координатами"""
+"""да быть такого не может"""
 class Point:
     def __init__(self, x, y) -> None:
         self.x = x
