@@ -4,3 +4,4 @@ tesseract
 assets
 data
 __pycache__
+/pautogui_test.py
