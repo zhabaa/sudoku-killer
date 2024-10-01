@@ -1,3 +1,5 @@
+empty_positions = set()
+
 def is_safe(board, row, col, num):
     for x in range(9):
         if board[row][x] == num:
@@ -9,6 +11,7 @@ def is_safe(board, row, col, num):
 
     start_row = row - row % 3
     start_col = col - col % 3
+
     for i in range(3):
         for j in range(3):
             if board[i + start_row][j + start_col] == num:
@@ -16,8 +19,22 @@ def is_safe(board, row, col, num):
     return True
 
 
+def find_empty_location(board):
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] == 0:
+                return (i, j)
+
+    return None
+
+
 def solve_sudoku(board):
+    global empty_positions
+    
     empty = find_empty_location(board)
+    
+    empty_positions.add(empty)
+
     if not empty:
         return True
 
@@ -33,11 +50,3 @@ def solve_sudoku(board):
             board[row][col] = 0
 
     return False
-
-
-def find_empty_location(board):
-    for i in range(9):
-        for j in range(9):
-            if board[i][j] == 0:
-                return (i, j)
-    return None
